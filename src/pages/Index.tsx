@@ -7,18 +7,23 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 const Index: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <SidebarProvider>
       <div className="flex flex-col md:flex-row min-h-screen w-full bg-gray-50">
-        <div className={`md:block ${sidebarOpen ? 'block' : 'hidden'}`}>
+        <div className={`${sidebarOpen ? 'block' : 'hidden'} md:block`}>
           <Sidebar />
         </div>
         
         <div className="flex-1">
           <div className="flex items-center p-4 border-b bg-white">
             <button 
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="mr-4 md:hidden p-2"
+              onClick={toggleSidebar}
+              className="mr-4 md:hidden p-2 rounded hover:bg-gray-100"
+              aria-label="Toggle Sidebar"
             >
               ☰
             </button>
