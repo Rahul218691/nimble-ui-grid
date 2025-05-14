@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SidebarProvider, Sidebar as ShadcnSidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
+import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 
 type SidebarItemProps = {
   icon: React.ReactNode;
@@ -25,18 +25,18 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon, label, active, onClick 
 
 const Sidebar: React.FC = () => {
   return (
-    <ShadcnSidebar className="border-r">
+    <div className="h-full w-full bg-white flex flex-col">
+      <div className="p-4 mb-4">
+        <div className="h-10 w-10 bg-gray-300 rounded-full flex items-center justify-center text-xl font-bold">
+          Logo
+        </div>
+      </div>
+      
+      <div className="px-4 py-2 text-sm font-medium text-gray-500">
+        LOREM IPSUM
+      </div>
+      
       <SidebarContent>
-        <div className="p-4 mb-4">
-          <div className="h-10 w-10 bg-gray-300 rounded-full flex items-center justify-center text-xl font-bold">
-            Logo
-          </div>
-        </div>
-        
-        <div className="px-4 py-2 text-sm font-medium text-gray-500">
-          LOREM IPSUM
-        </div>
-        
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
@@ -53,7 +53,7 @@ const Sidebar: React.FC = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-    </ShadcnSidebar>
+    </div>
   );
 };
 
